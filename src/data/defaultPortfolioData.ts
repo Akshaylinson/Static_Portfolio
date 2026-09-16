@@ -1,0 +1,213 @@
+import { PortfolioData } from '../types/portfolio';
+
+export const defaultPortfolioData: PortfolioData = {
+  hero: {
+    name: 'Akshay Linson M',
+    title: 'AI Software Engineer',
+    statusBadge: 'Open to AI & Full-Stack Opportunities',
+    summary:
+      'AI Software Engineer with hands-on experience building production-ready AI-integrated systems such as CRM, ERP, SAAS tools, dashboards, and automation workflows with a software-first engineering approach.',
+    avatarUrl:
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    location: 'Thrissur, Kerala, India',
+    email: 'akshaylinson24@gmail.com',
+    phone: '+91 8157953586',
+    resumeUrl: '#contact',
+    githubUrl: 'https://github.com/Akshaylinson',
+    linkedinUrl: 'https://www.linkedin.com/in/akshay-linson-m-2b602b252/',
+    websiteUrl: 'https://akshaylinson.in',
+  },
+  about: {
+    summary:
+      'AI Software Engineer with hands-on experience building production-ready AI-integrated systems such as CRM, ERP, SAAS tools, dashboards, and automation workflows. Strong in React, TypeScript, Python, MERN Stack, Scalable Backend services, Database management and Cloud AI deployment with a software-first engineering approach.',
+    bioParagraphs: [
+      'I am an AI Software Engineer passionate about transforming complex machine intelligence into robust, highly responsive, enterprise-grade digital products. With solid foundations in Computer Science and active production experience, I bridge the gap between advanced models and resilient web architectures.',
+      'From building automated deepfake verification engines to crafting high-throughput pharmaceutical compliance suites, my engineering approach combines algorithmic rigor with intuitive user experiences and clean modular systems.'
+    ],
+    languages: ['English', 'Malayalam', 'Hindi'],
+    highlights: [
+      {
+        title: 'Production AI Systems',
+        description: 'Architecting end-to-end intelligent decision logic, automation workflows, and agentic integrations using Python and LangGraph.',
+        icon: 'Cpu',
+      },
+      {
+        title: 'Full-Stack Excellence',
+        description: 'Developing high-performance SPAs and scalable backends using React, TypeScript, FastAPI, PostgreSQL, and Node.js.',
+        icon: 'Code2',
+      },
+      {
+        title: 'Enterprise Reliability',
+        description: 'Rigorous system validation, database optimization, compliance monitoring, and cloud deployment pipelines.',
+        icon: 'ShieldCheck',
+      },
+    ],
+  },
+  experience: [
+    {
+      id: 'exp-1',
+      title: 'AI Software Engineer',
+      company: 'Icom Technologies',
+      location: 'India',
+      period: 'Dec 2024 - Present',
+      isCurrent: true,
+      responsibilities: [
+        'Developed and optimized software systems integrating intelligent decision logic and automation components.',
+        'Worked on system design, testing, and validation to ensure reliability and compliance with standards. Analyzed system performance and prepared reports.',
+        'Collaborated with cross-functional engineering teams to support continuous development, staging, and high-availability production environments.',
+      ],
+      technologies: ['AI Logic', 'Automation Workflows', 'System Design', 'Testing & Validation', 'Python', 'React'],
+    },
+  ],
+  education: [
+    {
+      id: 'edu-1',
+      degree: 'Bachelor of Technology, Computer Science',
+      institution: 'Sahrdaya College of Engineering & Technology',
+      location: 'Kerala, India',
+      period: 'Sep 2021 - Nov 2024',
+      details: [
+        'Comprehensive curriculum in Data Structures, Algorithms, Database Management, Operating Systems, and Software Engineering.',
+        'Active leadership in technology clubs and hackathons focusing on AI system development and software automation.',
+      ],
+    },
+  ],
+  projects: [
+    {
+      id: 'proj-1',
+      title: 'Trintiy Mobile App',
+      subtitle: 'Clothing Brand Order & Inventory Management',
+      description:
+        'Developed a comprehensive Flutter-based order management application for a clothing brand, streamlining customer management, order tracking, inventory, sales, swatch issuance, authentication, image uploads, search/filtering, pagination, and real-time stock validation to support day-to-day retail, tailoring operations, and referral operations.',
+      technologies: ['Flutter', 'Dart', 'State Management', 'REST APIs', 'Image Processing', 'Inventory Validation'],
+      category: 'Mobile & Systems',
+      githubUrl: 'https://github.com/Akshaylinson',
+      liveUrl: 'https://akshaylinson.in',
+      featured: true,
+    },
+    {
+      id: 'proj-2',
+      title: 'Pharmaceutical Complaint Management',
+      subtitle: 'QMS & Automated Complaint Processing Platform',
+      description:
+        'Developed a full-stack pharmaceutical complaint management and QMS platform using React, Redux Toolkit, Python, FastAPI, PostgreSQL, and LangGraph, enabling structured complaint intake, document processing, QA review, and audit tracking.',
+      technologies: ['React', 'Redux Toolkit', 'Python', 'FastAPI', 'PostgreSQL', 'LangGraph', 'Audit Tracking'],
+      category: 'AI & Machine Learning',
+      githubUrl: 'https://github.com/Akshaylinson',
+      liveUrl: 'https://akshaylinson.in',
+      featured: true,
+    },
+    {
+      id: 'proj-3',
+      title: 'AI Content Authenticity & Deepfake Verification System',
+      subtitle: 'Digital Media Forensic & Authenticity Pipeline',
+      description:
+        'Developed a full-stack content authenticity and deepfake verification platform using TypeScript, React, Vite, React Native, Expo, and Python, supporting image/video ingestion, metadata analysis, cryptographic hashing, and automated authenticity verification.',
+      technologies: ['TypeScript', 'React', 'Vite', 'React Native', 'Expo', 'Python', 'Media Hashing', 'Verification'],
+      category: 'AI & Machine Learning',
+      githubUrl: 'https://github.com/Akshaylinson',
+      liveUrl: 'https://akshaylinson.in',
+      featured: true,
+    },
+    {
+      id: 'proj-4',
+      title: 'Real Estate Property Listing Website',
+      subtitle: 'Showcase Platform for Golden Mines Realtors',
+      description:
+        'Developed and deployed a custom real estate platform for Golden Mines Realtors, enabling the company to showcase and manage residential properties, apartments, villas, houses, and land available for sale.',
+      technologies: ['WordPress', 'PHP', 'Custom Architecture', 'Responsive UI/UX', 'SEO Optimization'],
+      category: 'Full-Stack & Web',
+      githubUrl: 'https://github.com/Akshaylinson',
+      liveUrl: 'https://akshaylinson.in',
+      featured: false,
+    },
+  ],
+  certifications: [
+    {
+      id: 'cert-1',
+      title: 'Software Engineering Certification',
+      issuer: 'J.P. Morgan',
+      issueDate: 'Verified Credential',
+      description: 'Engineered financial data feed visualizers, interface components, and algorithmic market data processors.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80',
+      certificateUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/J.P.%20Morgan/R5iK7HMxJGBdnxk3R_J.P.%20Morgan_completion_certificate.pdf',
+    },
+    {
+      id: 'cert-2',
+      title: 'Project Management Certification',
+      issuer: 'Siemens Mobility',
+      issueDate: 'Verified Credential',
+      description: 'Mastered Agile project coordination, enterprise risk assessment, and cross-functional technical delivery.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80',
+      certificateUrl: 'https://siemens.com',
+    },
+    {
+      id: 'cert-3',
+      title: 'Software Engineering Job Simulation',
+      issuer: 'Electronic Arts',
+      issueDate: 'Verified Credential',
+      description: 'Built scalable class structures, game loop optimizers, and automated regression unit testing suites.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80',
+      certificateUrl: 'https://ea.com',
+    },
+    {
+      id: 'cert-4',
+      title: 'Solutions Architecture Certification',
+      issuer: 'AWS',
+      issueDate: 'Verified Credential',
+      description: 'Demonstrated proficiency in high-availability cloud systems, serverless compute, and decoupled microservices.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80',
+      certificateUrl: 'https://aws.amazon.com/certification/',
+    },
+    {
+      id: 'cert-5',
+      title: 'Data Analytics Certification',
+      issuer: 'CISCO',
+      issueDate: 'Verified Credential',
+      description: 'Explored network data telemetry, statistical pipeline modeling, and automated visualization dashboards.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80',
+      certificateUrl: 'https://www.cisco.com/c/en/us/training-events/career-certifications.html',
+    },
+  ],
+  skillCategories: [
+    {
+      category: 'Technical & Engineering',
+      skills: [
+        'Full-Stack Development',
+        'React & Redux Toolkit',
+        'TypeScript & JavaScript',
+        'Python & FastAPI',
+        'MERN Stack',
+        'LangGraph & Agentic AI',
+        'PostgreSQL & MongoDB',
+        'Git & Version Control',
+        'Debugging, Testing & Troubleshooting',
+        'Responsive UI/UX Development',
+        'Cloud AI Deployment',
+        'Scalable Backend Services',
+      ],
+    },
+    {
+      category: 'Professional & Collaborative',
+      skills: [
+        'Market Research',
+        'Project Coordination',
+        'Cross-functional Communication',
+        'Time Management',
+        'Agile Delivery',
+        'System Architecture Design',
+      ],
+    },
+  ],
+  contact: {
+    recipientEmail: 'akshaylinson24@gmail.com',
+    phone: '+91 8157953586',
+    location: 'Thrissur, Kerala, India',
+    githubUrl: 'https://github.com/Akshaylinson',
+    linkedinUrl: 'https://www.linkedin.com/in/akshay-linson-m-2b602b252/',
+    websiteUrl: 'https://akshaylinson.in',
+    inquirySubjectPrefix: '[Portfolio Inquiry from Akshay.dev]',
+    availabilityNote: 'Available for full-time AI Engineer roles and high-impact consulting projects.',
+  },
+  lastUpdated: new Date().toISOString().split('T')[0],
+};
