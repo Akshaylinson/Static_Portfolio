@@ -114,18 +114,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ hero }) => {
               >
                 <span>Get In Touch</span>
               </a>
-              {hero.resumeUrl && (
-                <a
-                  id="hero-cta-resume"
-                  href={hero.resumeUrl}
-                  className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 border border-neutral-800 text-sm font-medium transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Download className="w-4 h-4 text-blue-400" />
-                  <span>CV</span>
-                </a>
-              )}
+              <a
+                id="hero-cta-resume"
+                href={hero.resumeUrl && hero.resumeUrl !== '#contact' ? hero.resumeUrl : '/resume.pdf'}
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 border border-neutral-800 text-sm font-medium transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className="w-4 h-4 text-blue-400" />
+                <span>CV</span>
+              </a>
 
               {/* Social links */}
               <div className="flex items-center gap-2 sm:ml-auto pt-2 sm:pt-0">

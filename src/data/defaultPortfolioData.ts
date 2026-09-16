@@ -12,7 +12,7 @@ export const defaultPortfolioData: PortfolioData = {
     location: 'Thrissur, Kerala, India',
     email: 'akshaylinson24@gmail.com',
     phone: '+91 8157953586',
-    resumeUrl: '#contact',
+    resumeUrl: '/resume.pdf',
     githubUrl: 'https://github.com/Akshaylinson',
     linkedinUrl: 'https://www.linkedin.com/in/akshay-linson-m-2b602b252/',
     websiteUrl: 'https://akshaylinson.in',

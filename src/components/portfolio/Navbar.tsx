@@ -76,7 +76,9 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
           <div className="hidden lg:flex items-center gap-3">
             <a
               id="nav-resume-btn"
-              href={hero.resumeUrl || '#contact'}
+              href={hero.resumeUrl && hero.resumeUrl !== '#contact' ? hero.resumeUrl : '/resume.pdf'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-lg shadow-sm shadow-blue-600/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <FileText className="w-3.5 h-3.5" />
@@ -118,12 +120,14 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
           <div className="pt-2">
             <a
               id="mobile-nav-resume"
-              href={hero.resumeUrl || '#contact'}
+              href={hero.resumeUrl && hero.resumeUrl !== '#contact' ? hero.resumeUrl : '/resume.pdf'}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
             >
               <FileText className="w-4 h-4" />
-              Download Resume
+              View Resume
             </a>
           </div>
         </div>
