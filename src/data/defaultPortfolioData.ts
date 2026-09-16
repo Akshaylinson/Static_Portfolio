@@ -129,8 +129,8 @@ export const defaultPortfolioData: PortfolioData = {
       issuer: 'J.P. Morgan',
       issueDate: 'Verified Credential',
       description: 'Engineered financial data feed visualizers, interface components, and algorithmic market data processors.',
-      thumbnailUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80',
-      certificateUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/J.P.%20Morgan/R5iK7HMxJGBdnxk3R_J.P.%20Morgan_completion_certificate.pdf',
+      thumbnailUrl: '/certificates/jpmorgan_softwareeng.png',
+      certificateUrl: '/certificates/jpmorgan_softwareeng.png',
     },
     {
       id: 'cert-2',
