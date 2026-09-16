@@ -96,7 +96,10 @@ export default function App() {
 
   // Navigation handlers
   const handleGoToPortfolio = () => {
-    window.location.hash = '#';
+    if (window.location.pathname.toLowerCase().startsWith('/admin') || window.location.search.toLowerCase().includes('admin')) {
+      window.history.pushState({}, '', '/');
+    }
+    window.location.hash = '';
     setIsAdminView(false);
   };
 
