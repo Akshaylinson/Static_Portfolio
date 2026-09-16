@@ -49,6 +49,26 @@ export default function App() {
     return sessionStorage.getItem(AUTH_KEY) === 'true';
   });
 
+  // Fetch live portfolio-data.json for visitors / fresh sessions
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      fetch('/portfolio-data.json')
+        .then((res) => {
+          if (res.ok) return res.json();
+          throw new Error('Could not fetch portfolio-data.json');
+        })
+        .then((jsonData: PortfolioData) => {
+          if (jsonData && jsonData.hero) {
+            setData(jsonData);
+          }
+        })
+        .catch(() => {
+          // Fallback seamlessly to defaultPortfolioData
+        });
+    }
+  }, []);
+
   // Listen to hash and popstate changes
   useEffect(() => {
     const handleLocationChange = () => {
