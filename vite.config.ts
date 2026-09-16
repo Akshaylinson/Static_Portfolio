@@ -14,6 +14,29 @@ function githubPagesSpaPlugin(): Plugin {
       if (fs.existsSync(indexPath)) {
         fs.copyFileSync(indexPath, notFoundPath);
       }
+
+      // Ensure root certificates/ are copied to dist/certificates/
+      const rootCertsDir = path.resolve(__dirname, 'certificates');
+      const distCertsDir = path.join(distDir, 'certificates');
+      if (fs.existsSync(rootCertsDir)) {
+        if (!fs.existsSync(distCertsDir)) {
+          fs.mkdirSync(distCertsDir, { recursive: true });
+        }
+        const files = fs.readdirSync(rootCertsDir);
+        for (const file of files) {
+          const srcFile = path.join(rootCertsDir, file);
+          if (fs.statSync(srcFile).isFile()) {
+            fs.copyFileSync(srcFile, path.join(distCertsDir, file));
+          }
+        }
+      }
+
+      // Ensure root resume.pdf is copied to dist/resume.pdf
+      const rootResume = path.resolve(__dirname, 'resume.pdf');
+      const distResume = path.join(distDir, 'resume.pdf');
+      if (fs.existsSync(rootResume)) {
+        fs.copyFileSync(rootResume, distResume);
+      }
     },
   };
 }

@@ -138,8 +138,8 @@ export const defaultPortfolioData: PortfolioData = {
       issuer: 'Siemens Mobility',
       issueDate: 'Verified Credential',
       description: 'Mastered Agile project coordination, enterprise risk assessment, and cross-functional technical delivery.',
-      thumbnailUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80',
-      certificateUrl: 'https://siemens.com',
+      thumbnailUrl: '/certificates/pm_siemens.png',
+      certificateUrl: '/certificates/pm_siemens.png',
     },
     {
       id: 'cert-3',

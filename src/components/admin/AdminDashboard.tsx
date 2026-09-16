@@ -27,6 +27,8 @@ import {
   ExternalLink,
   Check,
   AlertTriangle,
+  Image as ImageIcon,
+  Link2,
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -114,6 +116,59 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       }
     };
     reader.readAsText(file);
+  };
+
+  // Helper to read image as optimized base64 Data URL
+  const readFileAsDataUrl = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        if (!result) {
+          reject(new Error('Failed to read file'));
+          return;
+        }
+
+        if (file.type.startsWith('image/')) {
+          const img = new Image();
+          img.onload = () => {
+            const MAX_WIDTH = 1200;
+            const MAX_HEIGHT = 1200;
+            let width = img.width;
+            let height = img.height;
+
+            if (width > MAX_WIDTH || height > MAX_HEIGHT) {
+              if (width > height) {
+                height = Math.round((height * MAX_WIDTH) / width);
+                width = MAX_WIDTH;
+              } else {
+                width = Math.round((width * MAX_HEIGHT) / height);
+                height = MAX_HEIGHT;
+              }
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+              ctx.drawImage(img, 0, 0, width, height);
+              const mimeType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+              const optimizedDataUrl = canvas.toDataURL(mimeType, 0.88);
+              resolve(optimizedDataUrl);
+              return;
+            }
+            resolve(result);
+          };
+          img.onerror = () => resolve(result);
+          img.src = result;
+        } else {
+          resolve(result);
+        }
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   };
 
   // ---------------- Handlers for Experience ----------------
@@ -436,20 +491,45 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1.5">Profile Photo Avatar URL</label>
-                <input
-                  type="url"
-                  value={formData.hero.avatarUrl}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      hero: { ...formData.hero, avatarUrl: e.target.value },
-                    })
-                  }
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-teal-400"
-                />
+                <label className="block text-xs font-mono text-slate-300 mb-1.5">Profile Photo Avatar</label>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="text"
+                    value={formData.hero.avatarUrl}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        hero: { ...formData.hero, avatarUrl: e.target.value },
+                      })
+                    }
+                    placeholder="https://... or /certificates/photo.png or data URL"
+                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-teal-400"
+                  />
+                  <label className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs cursor-pointer shadow-md shadow-blue-600/20 transition-all shrink-0">
+                    <Upload className="w-4 h-4" />
+                    <span>Choose Photo File</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        try {
+                          const dataUrl = await readFileAsDataUrl(file);
+                          setFormData({
+                            ...formData,
+                            hero: { ...formData.hero, avatarUrl: dataUrl },
+                          });
+                        } catch (err) {
+                          console.error('Failed to read photo file:', err);
+                        }
+                      }}
+                    />
+                  </label>
+                </div>
                 {formData.hero.avatarUrl && (
-                  <div className="mt-2 flex items-center gap-3">
+                  <div className="mt-2.5 flex items-center gap-3 p-2 rounded-xl bg-slate-950/60 border border-slate-800">
                     <img
                       src={formData.hero.avatarUrl}
                       alt="Preview"
@@ -458,7 +538,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         (e.currentTarget as HTMLElement).style.display = 'none';
                       }}
                     />
-                    <span className="text-[11px] text-slate-400 font-mono">Avatar image preview</span>
+                    <div>
+                      <div className="text-xs font-semibold text-slate-200">Avatar Image Active</div>
+                      <div className="text-[11px] text-slate-400 font-mono">Live preview rendered above</div>
+                    </div>
                   </div>
                 )}
               </div>
@@ -1121,30 +1204,86 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         />
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-mono text-slate-300 mb-1">
-                          Thumbnail Image URL (pasting URL shows thumbnail)
-                        </label>
-                        <input
-                          type="url"
-                          value={cert.thumbnailUrl}
-                          onChange={(e) => handleUpdateCertification(idx, 'thumbnailUrl', e.target.value)}
-                          placeholder="https://images.unsplash.com/..."
-                          className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-teal-400"
-                        />
+                      {/* Direct File Uploader Box */}
+                      <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2.5">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                          <label className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs cursor-pointer shadow-md shadow-blue-600/20 transition-all">
+                            <Upload className="w-4 h-4" />
+                            <span>Upload Certificate Image / File</span>
+                            <input
+                              type="file"
+                              accept="image/*,application/pdf"
+                              className="hidden"
+                              onChange={async (e) => {
+                                const file = e.target.files?.[0];
+                                if (!file) return;
+                                try {
+                                  const dataUrl = await readFileAsDataUrl(file);
+                                  const updatedCerts = [...formData.certifications];
+                                  updatedCerts[idx] = {
+                                    ...updatedCerts[idx],
+                                    thumbnailUrl: dataUrl,
+                                    certificateUrl: dataUrl,
+                                  };
+                                  setFormData({ ...formData, certifications: updatedCerts });
+                                } catch (err) {
+                                  console.error('Failed to read certificate file:', err);
+                                }
+                              }}
+                            />
+                          </label>
+
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const updatedCerts = [...formData.certifications];
+                              const srcUrl = updatedCerts[idx].thumbnailUrl || updatedCerts[idx].certificateUrl;
+                              if (srcUrl) {
+                                updatedCerts[idx] = {
+                                  ...updatedCerts[idx],
+                                  thumbnailUrl: srcUrl,
+                                  certificateUrl: srcUrl,
+                                };
+                                setFormData({ ...formData, certifications: updatedCerts });
+                              }
+                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 text-xs font-medium transition-colors"
+                          >
+                            <Link2 className="w-3.5 h-3.5 text-blue-400" />
+                            <span>Sync Thumbnail & Target URL</span>
+                          </button>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-mono">
+                          Picks image from your laptop/phone and automatically sets both the card thumbnail and full view link.
+                        </p>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-mono text-slate-300 mb-1">
-                          Certificate Target URL (clicking card directs to this URL)
-                        </label>
-                        <input
-                          type="url"
-                          value={cert.certificateUrl}
-                          onChange={(e) => handleUpdateCertification(idx, 'certificateUrl', e.target.value)}
-                          placeholder="https://..."
-                          className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-teal-400"
-                        />
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-mono text-slate-300 mb-1">
+                            Thumbnail Image URL
+                          </label>
+                          <input
+                            type="text"
+                            value={cert.thumbnailUrl}
+                            onChange={(e) => handleUpdateCertification(idx, 'thumbnailUrl', e.target.value)}
+                            placeholder="/certificates/cert.png or URL"
+                            className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-teal-400"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-mono text-slate-300 mb-1">
+                            Certificate Target URL (Opens on Click)
+                          </label>
+                          <input
+                            type="text"
+                            value={cert.certificateUrl}
+                            onChange={(e) => handleUpdateCertification(idx, 'certificateUrl', e.target.value)}
+                            placeholder="/certificates/cert.png or URL"
+                            className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-teal-400"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
