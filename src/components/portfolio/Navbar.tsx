@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
       id="main-nav-header"
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20 py-3.5'
+          ? 'bg-black/90 backdrop-blur-md border-b border-neutral-800/80 shadow-lg shadow-black/40 py-3.5'
           : 'bg-transparent py-5'
       }`}
     >
@@ -45,14 +45,14 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
             href="#hero"
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-400 flex items-center justify-center font-mono font-bold text-slate-950 text-sm shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
+            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-sky-500 flex items-center justify-center font-mono font-bold text-white text-sm shadow-md shadow-blue-600/25 group-hover:scale-105 transition-transform">
               AL
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-slate-100 text-base tracking-tight group-hover:text-teal-400 transition-colors">
+              <span className="font-bold text-white text-base tracking-tight group-hover:text-blue-400 transition-colors">
                 {hero.name}
               </span>
-              <span className="text-xs text-slate-400 font-mono tracking-wider">
+              <span className="text-xs text-neutral-400 font-mono tracking-wider">
                 {hero.title}
               </span>
             </div>
@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
                 key={link.name}
                 id={`nav-link-${link.name.toLowerCase()}`}
                 href={link.href}
-                className="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-teal-400 hover:bg-slate-900/60 rounded-lg transition-all"
+                className="px-3.5 py-2 text-sm font-medium text-neutral-300 hover:text-blue-400 hover:bg-neutral-900/60 rounded-lg transition-all"
               >
                 {link.name}
               </a>
@@ -77,11 +77,11 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
             <a
               id="nav-resume-btn"
               href={hero.resumeUrl || '#contact'}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-950 bg-teal-400 hover:bg-teal-300 rounded-lg shadow-sm shadow-teal-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-lg shadow-sm shadow-blue-600/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <FileText className="w-3.5 h-3.5" />
               Resume
-              <ArrowUpRight className="w-3 h-3 ml-0.5 opacity-70" />
+              <ArrowUpRight className="w-3 h-3 ml-0.5 opacity-80" />
             </a>
           </div>
 
@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
             id="mobile-menu-toggle-btn"
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
       {mobileMenuOpen && (
         <div
           id="mobile-nav-drawer"
-          className="lg:hidden bg-slate-950/95 border-b border-slate-800/80 px-4 pt-3 pb-6 space-y-2 backdrop-blur-xl animate-in slide-in-from-top duration-200"
+          className="lg:hidden bg-black/95 border-b border-neutral-800/80 px-4 pt-3 pb-6 space-y-2 backdrop-blur-xl animate-in slide-in-from-top duration-200"
         >
           {navLinks.map((link) => (
             <a
@@ -110,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
               id={`mobile-nav-${link.name.toLowerCase()}`}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2.5 text-base font-medium text-slate-200 hover:text-teal-400 hover:bg-slate-900 rounded-lg transition-colors"
+              className="block px-3 py-2.5 text-base font-medium text-neutral-200 hover:text-blue-400 hover:bg-neutral-900 rounded-lg transition-colors"
             >
               {link.name}
             </a>
@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hero }) => {
               id="mobile-nav-resume"
               href={hero.resumeUrl || '#contact'}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold uppercase tracking-wider text-slate-950 bg-teal-400 hover:bg-teal-300 rounded-lg transition-colors"
+              className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
             >
               <FileText className="w-4 h-4" />
               Download Resume

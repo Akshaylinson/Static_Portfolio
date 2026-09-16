@@ -50,16 +50,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
   };
 
   return (
-    <section id="contact" className="py-24 relative border-t border-slate-900 bg-slate-950/60">
+    <section id="contact" className="py-24 relative border-t border-neutral-900 bg-neutral-950/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-mono tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/60 border border-blue-800/60 text-blue-400 text-xs font-mono tracking-wider uppercase">
             Get In Touch
           </div>
           <h2 id="contact-heading" className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Connect & Collaborate
           </h2>
-          <p className="text-slate-400 max-w-2xl text-base sm:text-lg">
+          <p className="text-neutral-400 max-w-2xl text-base sm:text-lg">
             Have an open role, engineering challenge, or collaboration in mind? Send an inquiry directly to my inbox.
           </p>
         </div>
@@ -67,13 +67,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Direct Contact Info & Socials */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 space-y-6">
+            <div className="p-6 sm:p-8 rounded-2xl bg-neutral-900/60 border border-neutral-800/90 space-y-6">
               <h3 className="text-xl font-bold text-white tracking-tight">
                 Direct Contact Channels
               </h3>
 
               {contact.availabilityNote && (
-                <div className="p-3.5 rounded-xl bg-teal-950/30 border border-teal-800/40 text-xs text-teal-300">
+                <div className="p-3.5 rounded-xl bg-blue-950/40 border border-blue-800/50 text-xs text-blue-300">
                   {contact.availabilityNote}
                 </div>
               )}
@@ -84,18 +84,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                   <a
                     id="contact-channel-email"
                     href={`mailto:${contact.recipientEmail}`}
-                    className="flex items-center gap-4 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/50 hover:bg-slate-900 transition-all group"
+                    className="flex items-center gap-4 p-3 rounded-xl bg-black border border-neutral-800 hover:border-blue-500/50 hover:bg-neutral-900 transition-all group"
                   >
-                    <div className="p-2.5 rounded-lg bg-teal-500/10 text-teal-400 group-hover:scale-105 transition-transform">
+                    <div className="p-2.5 rounded-lg bg-blue-950/60 text-blue-400 group-hover:scale-105 transition-transform">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs font-mono text-slate-400">Direct Email</div>
-                      <div className="text-sm font-semibold text-slate-200 truncate group-hover:text-teal-300">
+                      <div className="text-xs font-mono text-neutral-400">Direct Email</div>
+                      <div className="text-sm font-semibold text-white truncate group-hover:text-blue-300">
                         {contact.recipientEmail}
                       </div>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-teal-400 shrink-0" />
+                    <ArrowUpRight className="w-4 h-4 text-neutral-500 group-hover:text-blue-400 shrink-0" />
                   </a>
                 )}
 
@@ -104,30 +104,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                   <a
                     id="contact-channel-phone"
                     href={`tel:${contact.phone.replace(/\s+/g, '')}`}
-                    className="flex items-center gap-4 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/50 hover:bg-slate-900 transition-all group"
+                    className="flex items-center gap-4 p-3 rounded-xl bg-black border border-neutral-800 hover:border-blue-500/50 hover:bg-neutral-900 transition-all group"
                   >
-                    <div className="p-2.5 rounded-lg bg-teal-500/10 text-teal-400 group-hover:scale-105 transition-transform">
+                    <div className="p-2.5 rounded-lg bg-blue-950/60 text-blue-400 group-hover:scale-105 transition-transform">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs font-mono text-slate-400">Phone / WhatsApp</div>
-                      <div className="text-sm font-semibold text-slate-200 truncate group-hover:text-teal-300">
+                      <div className="text-xs font-mono text-neutral-400">Phone / WhatsApp</div>
+                      <div className="text-sm font-semibold text-white truncate group-hover:text-blue-300">
                         {contact.phone}
                       </div>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-teal-400 shrink-0" />
+                    <ArrowUpRight className="w-4 h-4 text-neutral-500 group-hover:text-blue-400 shrink-0" />
                   </a>
                 )}
 
                 {/* Location */}
                 {contact.location && (
-                  <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div className="p-2.5 rounded-lg bg-teal-500/10 text-teal-400">
+                  <div className="flex items-center gap-4 p-3 rounded-xl bg-black border border-neutral-800">
+                    <div className="p-2.5 rounded-lg bg-blue-950/60 text-blue-400">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-slate-400">Location</div>
-                      <div className="text-sm font-semibold text-slate-200">
+                      <div className="text-xs font-mono text-neutral-400">Location</div>
+                      <div className="text-sm font-semibold text-white">
                         {contact.location}
                       </div>
                     </div>
@@ -136,8 +136,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
               </div>
 
               {/* Profiles */}
-              <div className="pt-4 border-t border-slate-800/80">
-                <div className="text-xs font-mono text-slate-400 mb-3">Professional Profiles</div>
+              <div className="pt-4 border-t border-neutral-800">
+                <div className="text-xs font-mono text-neutral-400 mb-3">Professional Profiles</div>
                 <div className="flex flex-wrap gap-2.5">
                   {contact.linkedinUrl && (
                     <a
@@ -145,9 +145,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                       href={contact.linkedinUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/50 text-slate-300 hover:text-teal-300 text-xs font-medium transition-colors"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black border border-neutral-800 hover:border-blue-500/50 text-neutral-200 hover:text-blue-300 text-xs font-medium transition-colors"
                     >
-                      <Linkedin className="w-4 h-4 text-teal-400" />
+                      <Linkedin className="w-4 h-4 text-blue-400" />
                       <span>LinkedIn</span>
                     </a>
                   )}
@@ -157,9 +157,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                       href={contact.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/50 text-slate-300 hover:text-teal-300 text-xs font-medium transition-colors"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black border border-neutral-800 hover:border-blue-500/50 text-neutral-200 hover:text-blue-300 text-xs font-medium transition-colors"
                     >
-                      <Github className="w-4 h-4 text-teal-400" />
+                      <Github className="w-4 h-4 text-blue-400" />
                       <span>GitHub</span>
                     </a>
                   )}
@@ -169,9 +169,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                       href={contact.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/50 text-slate-300 hover:text-teal-300 text-xs font-medium transition-colors"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black border border-neutral-800 hover:border-blue-500/50 text-neutral-200 hover:text-blue-300 text-xs font-medium transition-colors"
                     >
-                      <Globe className="w-4 h-4 text-teal-400" />
+                      <Globe className="w-4 h-4 text-blue-400" />
                       <span>Website</span>
                     </a>
                   )}
@@ -182,13 +182,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
 
           {/* Right Column: Interactive Inquiry Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80">
+            <div className="p-6 sm:p-8 rounded-2xl bg-neutral-900/60 border border-neutral-800/90">
               <h3 className="text-xl font-bold text-white tracking-tight mb-2">
                 Send Direct Email Inquiry
               </h3>
-              <p className="text-slate-400 text-sm mb-6">
+              <p className="text-neutral-400 text-sm mb-6">
                 Fill in the details below to dispatch your message straight to{' '}
-                <span className="text-teal-400 font-mono font-medium">{contact.recipientEmail}</span>.
+                <span className="text-blue-400 font-mono font-medium">{contact.recipientEmail}</span>.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -196,7 +196,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                   <div>
                     <label
                       htmlFor="contact-form-name"
-                      className="block text-xs font-mono text-slate-300 mb-1.5"
+                      className="block text-xs font-mono text-neutral-200 mb-1.5"
                     >
                       Your Name *
                     </label>
@@ -207,13 +207,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. John Doe"
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-teal-400 text-sm transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-black border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-blue-400 text-sm transition-colors"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="contact-form-email"
-                      className="block text-xs font-mono text-slate-300 mb-1.5"
+                      className="block text-xs font-mono text-neutral-200 mb-1.5"
                     >
                       Your Email *
                     </label>
@@ -224,7 +224,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. john@example.com"
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-teal-400 text-sm transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-black border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-blue-400 text-sm transition-colors"
                     />
                   </div>
                 </div>
@@ -232,7 +232,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                 <div>
                   <label
                     htmlFor="contact-form-subject"
-                    className="block text-xs font-mono text-slate-300 mb-1.5"
+                    className="block text-xs font-mono text-neutral-200 mb-1.5"
                   >
                     Subject *
                   </label>
@@ -243,14 +243,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Project Inquiry / Job Opportunity"
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-teal-400 text-sm transition-colors"
+                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-blue-400 text-sm transition-colors"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="contact-form-message"
-                    className="block text-xs font-mono text-slate-300 mb-1.5"
+                    className="block text-xs font-mono text-neutral-200 mb-1.5"
                   >
                     Message Details *
                   </label>
@@ -261,7 +261,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your project, timeline, or position requirements..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-teal-400 text-sm transition-colors resize-y"
+                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-blue-400 text-sm transition-colors resize-y"
                   />
                 </div>
 
@@ -269,7 +269,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                   <button
                     id="contact-form-submit-btn"
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm shadow-md shadow-teal-500/20 transition-all active:scale-[0.98]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-md shadow-blue-600/30 transition-all active:scale-[0.98]"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Message to {contact.recipientEmail}</span>
@@ -279,12 +279,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                     id="contact-form-copy-btn"
                     type="button"
                     onClick={copyInquiryToClipboard}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs font-medium transition-colors"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-black hover:bg-neutral-800 text-white border border-neutral-800 text-xs font-medium transition-colors"
                   >
                     {copied ? (
                       <>
-                        <Check className="w-4 h-4 text-emerald-400" />
-                        <span className="text-emerald-400">Copied!</span>
+                        <Check className="w-4 h-4 text-blue-400" />
+                        <span className="text-blue-400">Copied!</span>
                       </>
                     ) : (
                       <>
@@ -298,9 +298,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
                 {submitted && (
                   <div
                     id="contact-form-success-banner"
-                    className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/60 text-emerald-300 text-xs leading-relaxed mt-4 flex items-start gap-2.5"
+                    className="p-4 rounded-xl bg-blue-950/50 border border-blue-800/60 text-blue-200 text-xs leading-relaxed mt-4 flex items-start gap-2.5"
                   >
-                    <Check className="w-4 h-4 shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 shrink-0 mt-0.5 text-blue-400" />
                     <div>
                       <strong>Email Client Triggered:</strong> Your default email software was launched with your inquiry directed to{' '}
                       <span className="underline font-mono">{contact.recipientEmail}</span>. You can also copy your message above if needed.

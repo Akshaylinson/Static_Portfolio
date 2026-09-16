@@ -17,17 +17,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 relative border-t border-slate-900">
+    <section id="projects" className="py-24 relative border-t border-neutral-900 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="text-left space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-mono tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/60 border border-blue-800/60 text-blue-400 text-xs font-mono tracking-wider uppercase">
               Featured Work
             </div>
             <h2 id="projects-heading" className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Highlighted Projects
             </h2>
-            <p className="text-slate-400 max-w-2xl text-base sm:text-lg">
+            <p className="text-neutral-400 max-w-2xl text-base sm:text-lg">
               Production systems, intelligent automation pipelines, and scalable enterprise applications.
             </p>
           </div>
@@ -42,8 +42,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   activeCategory === cat
-                    ? 'bg-teal-500 text-slate-950 font-semibold shadow-md shadow-teal-500/20'
-                    : 'bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 hover:text-white'
+                    ? 'bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/30'
+                    : 'bg-neutral-900 text-neutral-300 border border-neutral-800 hover:border-neutral-700 hover:text-white'
                 }`}
               >
                 {cat}
@@ -58,44 +58,44 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             <div
               key={project.id}
               id={`project-card-${project.id}`}
-              className="rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700/80 p-6 sm:p-8 flex flex-col justify-between group transition-all"
+              className="rounded-2xl bg-neutral-900/50 border border-neutral-800/90 hover:border-blue-900/80 hover:bg-neutral-900/70 p-6 sm:p-8 flex flex-col justify-between group transition-all"
             >
               <div>
                 {/* Header row */}
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <span className="px-2.5 py-1 rounded-md bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-mono">
+                  <span className="px-2.5 py-1 rounded-md bg-blue-950/60 border border-blue-800/60 text-blue-400 text-xs font-mono">
                     {project.category}
                   </span>
                   {project.featured && (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-cyan-300 bg-cyan-950/60 border border-cyan-800/60 px-2 py-0.5 rounded-full">
-                      <Sparkles className="w-3 h-3 text-cyan-400" />
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-sky-300 bg-blue-950/80 border border-blue-700/60 px-2 py-0.5 rounded-full">
+                      <Sparkles className="w-3 h-3 text-sky-400" />
                       Featured
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-teal-300 transition-colors mb-2">
+                <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors mb-2">
                   {project.title}
                 </h3>
 
                 {project.subtitle && (
-                  <h4 className="text-sm font-mono text-teal-400/90 mb-4">
+                  <h4 className="text-sm font-mono text-blue-400/90 mb-4">
                     {project.subtitle}
                   </h4>
                 )}
 
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                <p className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-6">
                   {project.description}
                 </p>
               </div>
 
               <div>
                 {/* Tech Badges */}
-                <div className="flex flex-wrap gap-1.5 mb-6 pt-4 border-t border-slate-800/70">
+                <div className="flex flex-wrap gap-1.5 mb-6 pt-4 border-t border-neutral-800">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 text-xs font-mono border border-slate-800/90"
+                      className="px-2.5 py-1 rounded-md bg-black text-neutral-200 text-xs font-mono border border-neutral-800"
                     >
                       {tech}
                     </span>
@@ -110,9 +110,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-200 border border-slate-800 text-xs font-medium transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-black hover:bg-neutral-800 text-white border border-neutral-800 text-xs font-medium transition-colors"
                     >
-                      <Github className="w-3.5 h-3.5 text-teal-400" />
+                      <Github className="w-3.5 h-3.5 text-blue-400" />
                       <span>Code / Repo</span>
                     </a>
                   )}
@@ -122,7 +122,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-medium transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/40 text-xs font-medium transition-colors"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       <span>Project Link</span>

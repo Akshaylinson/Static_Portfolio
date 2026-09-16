@@ -133,7 +133,7 @@ export default function App() {
 
   // Render Clean Portfolio Landing Page (Strictly NO login buttons or admin controls)
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-teal-500/20 selection:text-teal-300">
+    <div className="min-h-screen bg-black text-white flex flex-col selection:bg-blue-600/30 selection:text-blue-200">
       <Navbar hero={data.hero} />
 
       <main className="flex-1">
